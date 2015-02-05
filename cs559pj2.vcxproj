@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B4B0BFF7-EB0A-484D-AAC4-9E95D308FF63}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>cs559pj2</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>./middleware/fltk/include;./middleware/glew-1.11.0/include;./middleware/glm;./src;./middleware/libpng_header;./middleware/libz_header</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>./middleware/fltk/lib/Debug;./middleware/glew-1.11.0/lib/Release/Win32</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32s.lib;fltkd.lib;fltkgld.lib;fltkpng.lib;fltkimagesd.lib;fltkformsd.lib;zlibd.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>./middleware/fltk/include;./middleware/glew-1.11.0/include;./middleware/glm;./src;./middleware/libpng_header;./middleware/libz_header</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>./middleware/fltk/lib/Debug;./middleware/glew-1.11.0/lib/Release/Win32</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32s.lib;fltkd.lib;fltkgld.lib;fltkpng.lib;fltkimagesd.lib;fltkformsd.lib;zlibd.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\fileio\img_png.cpp" />
+    <ClCompile Include="src\gl_canvas.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\mesh\gen_primitive.cpp" />
+    <ClCompile Include="src\mesh\load_terrain.cpp" />
+    <ClCompile Include="src\mesh\mesh.cpp" />
+    <ClCompile Include="src\misc\util.cpp" />
+    <ClCompile Include="src\rendering\basic.cpp" />
+    <ClCompile Include="src\rendering\basic\cube.cpp" />
+    <ClCompile Include="src\rendering\basic\cubemap.cpp" />
+    <ClCompile Include="src\rendering\basic\cubemap_ball.cpp" />
+    <ClCompile Include="src\rendering\basic\fillscreen.cpp" />
+    <ClCompile Include="src\rendering\basic\planet.cpp" />
+    <ClCompile Include="src\rendering\basic\rectangle.cpp" />
+    <ClCompile Include="src\rendering\camera.cpp" />
+    <ClCompile Include="src\rendering\opengl\framebuffer.cpp" />
+    <ClCompile Include="src\rendering\opengl\opengl_util.cpp" />
+    <ClCompile Include="src\rendering\opengl\shader_util.cpp" />
+    <ClCompile Include="src\rendering\opengl\stencil.cpp" />
+    <ClCompile Include="src\rendering\opengl\texture_mngr.cpp" />
+    <ClCompile Include="src\rendering\scene\bird.cpp" />
+    <ClCompile Include="src\rendering\scene\cloud.cpp" />
+    <ClCompile Include="src\rendering\scene\skybox.cpp" />
+    <ClCompile Include="src\rendering\scene\trees.cpp" />
+    <ClCompile Include="src\rendering\technique\ex_fbo.cpp" />
+    <ClCompile Include="src\rendering\technique\ex_fbo_color.cpp" />
+    <ClCompile Include="src\rendering\technique\ex_fbo_depth.cpp" />
+    <ClCompile Include="src\rendering\technique\ex_stencil.cpp" />
+    <ClCompile Include="src\rendering\technique\terrain.cpp" />
+    <ClCompile Include="src\rendering\technique\water.cpp" />
+    <ClCompile Include="src\window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\cs559core.h" />
+    <ClInclude Include="src\fileio\img_png.h" />
+    <ClInclude Include="src\gl_canvas.h" />
+    <ClInclude Include="src\mesh\gen_primitive.h" />
+    <ClInclude Include="src\mesh\load_terrain.h" />
+    <ClInclude Include="src\mesh\mesh.h" />
+    <ClInclude Include="src\misc\util.h" />
+    <ClInclude Include="src\rendering\basic.h" />
+    <ClInclude Include="src\rendering\basic\cube.h" />
+    <ClInclude Include="src\rendering\basic\cubemap.h" />
+    <ClInclude Include="src\rendering\basic\cubemap_ball.h" />
+    <ClInclude Include="src\rendering\basic\fillscreen.h" />
+    <ClInclude Include="src\rendering\basic\planet.h" />
+    <ClInclude Include="src\rendering\basic\rectangle.h" />
+    <ClInclude Include="src\rendering\camera.h" />
+    <ClInclude Include="src\rendering\opengl\framebuffer.h" />
+    <ClInclude Include="src\rendering\opengl\opengl_util.h" />
+    <ClInclude Include="src\rendering\opengl\shader_util.h" />
+    <ClInclude Include="src\rendering\opengl\stencil.h" />
+    <ClInclude Include="src\rendering\opengl\texture_mngr.h" />
+    <ClInclude Include="src\rendering\scene\bird.h" />
+    <ClInclude Include="src\rendering\scene\cloud.h" />
+    <ClInclude Include="src\rendering\scene\island.h" />
+    <ClInclude Include="src\rendering\scene\skybox.h" />
+    <ClInclude Include="src\rendering\scene\trees.h" />
+    <ClInclude Include="src\rendering\technique\ex_fbo.h" />
+    <ClInclude Include="src\rendering\technique\ex_fbo_color.h" />
+    <ClInclude Include="src\rendering\technique\ex_fbo_depth.h" />
+    <ClInclude Include="src\rendering\technique\ex_stencil.h" />
+    <ClInclude Include="src\rendering\technique\terrain.h" />
+    <ClInclude Include="src\rendering\technique\water.h" />
+    <ClInclude Include="src\window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\shader\basic\cubemap_ball_fragment.glsl" />
+    <None Include="src\shader\basic\cubemap_ball_vertex.glsl" />
+    <None Include="src\shader\basic\cubemap_fragment.glsl" />
+    <None Include="src\shader\basic\cubemap_vertex.glsl" />
+    <None Include="src\shader\basic\earth_fragment.glsl" />
+    <None Include="src\shader\basic\earth_vertex.glsl" />
+    <None Include="src\shader\basic\moon_fragment.glsl" />
+    <None Include="src\shader\basic\moon_vertex.glsl" />
+    <None Include="src\shader\basic\phong_fragment.glsl" />
+    <None Include="src\shader\basic\phong_vertex.glsl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

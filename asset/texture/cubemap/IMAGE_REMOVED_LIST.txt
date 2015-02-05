@@ -1,0 +1,10 @@
+Due to the copyright issue,
+I remove the corresponding images.
+
+removed images:
+sky_nx.png
+sky_ny.png
+sky_nz.png
+sky_px.png
+sky_py.png
+sky_pz.png
