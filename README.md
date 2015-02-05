@@ -1,8 +1,11 @@
- *Author: L.C. Chu*
- *Date: 2014/12/11, UW-Madison*
+###### Author: L.C. Chu
+###### Date: 2014/12/11, UW-Madison
+
+![beauty shot](https://github.com/lcchu/cs559_project/blob/master/bueaty_shot.png)
+<div style="text-align:center">video link: http://youtu.be/aYlcorjD2z8a</div> 
 
 ####   (0) The story
-  Several years ago, I had a change to go a little island in pacific ocean. That's a unforgettable beautiful experience, So I decide to make this as my final project :)
+  Several years ago, I went to a little island in pacific ocean (GPS: 22.0440943,121.5503227). That was an unforgettable experience. For this project, I try to render this island as real as possible :)
 
 ####  (1) Navigation, Program and Code
 
@@ -14,7 +17,7 @@
 
 ####  (2) Features
 1. The island:
-  * I crop the google map image from the Bing Map, and convert it into the height map and texture map.
+  * I crop the map image from the Bing Map and Google Map, and manually convert it into the height map and texture map.
 2. The trees:
   * There are roguhly 1.5 thousand trees on the island.  Each tree is a billboard which always faces the camera. And There are 5 different of trees picked randomly as texture.
   * Two technical points here:
@@ -34,14 +37,13 @@
   * This is a skybox, which loads 6 different textures, and the mesh is a sphere.
 6. Bird:
   * The bird flies in the sky around the island. And it's wing waves periodically.
-7. Framebuffer:
-  * The multi-pass rendering is not easy to debug, so I make a debuging tool which is also a framebuffer.
-  * This can draw other's object drawcall into the framebffer and present it in
-  * the sub-region of the window for debugging.
-  * This supports three types: Color buffer, Depth buffer and Stencil Buffer.
+7. The debugging tool (using Framebuffer):
+  * The multi-pass rendering is not easy to debug, so I make a debuging feature using framebuffer.
+  * The debugging tool draw object's drawcall in the framebffer and show it in the sub-region of the window.
+  * This supports three types of buffer: Color buffer, Depth buffer and Stencil Buffer.
 8. Framework:
-  * I decide to write a framework using the modern OpenGL language, mostly are
-  * OpenGLES 3.0. This framework can be easily porting to mobile platform, and other embedded system.
+  * The project is implemented by C++ and modern OpenGL language, i.e. OpenGLES 3.0. 
+  * The project can be easily porting to other platform such as mobile device or embedded system.
 
 #### Rrefence:
   1. https://www.khronos.org/opengles/sdk/docs/man3/

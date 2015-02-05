@@ -18,7 +18,6 @@
 #include "rendering/basic/planet.h"
 #include "rendering/basic/cubemap.h"
 #include "rendering/basic/cubemap_ball.h"
-
 #include "rendering/basic/cube.h"
 #include "rendering/basic/rectangle.h"
 #include "rendering/scene/skybox.h"
@@ -27,7 +26,6 @@
 #include "rendering/scene/bird.h"
 #include "rendering/technique/terrain.h"
 #include "rendering/technique/water.h"
-
 #include "rendering/technique/ex_fbo.h"
 #include "rendering/technique/ex_stencil.h"
 
@@ -39,7 +37,8 @@
 
 namespace cs559 {
 
-/**
+/** All the rendering objects are added here.
+ *  Their properties are setup here too.
  */
 GLCanvas::GLCanvas(int x, int y, int width, int height, char const* name, int fps)
     : Fl_Gl_Window(x, y, width, height, name) {
@@ -48,14 +47,13 @@ GLCanvas::GLCanvas(int x, int y, int width, int height, char const* name, int fp
   next_clock_ = clock() + CLOCKS_PER_SEC;  
   camera_.SetFPS((float)fps);
 
+  // setup the asset path for the objects
   TextureMngr::AddFolderPath("./asset/texture/cubemap");
   TextureMngr::AddFolderPath("./asset/texture/terrain");
   TextureMngr::AddFolderPath("./asset/texture");
   
-#if 1
   // Skybox, draw first
   scene_objects_.push_back(new Skybox(camera_));   
-
 
   // Island
   Terrain* terrain = new Terrain(camera_);
@@ -77,29 +75,17 @@ GLCanvas::GLCanvas(int x, int y, int width, int height, char const* name, int fp
   Trees* trees = new Trees(camera_);
   scene_objects_.push_back(trees);
 
-
   // Cloud
   Cloud* cloud = new Cloud(camera_);
   scene_objects_.push_back(cloud);
-#endif
-
 
   // Bird
   Bird* bird = new Bird(camera_);
   scene_objects_.push_back(bird);
-
-  //scene_objects_.push_back(new ObjEarth);    
-  //scene_objects_.push_back(new CubemapBall);  
-  //scene_objects_.push_back(new Cube);  
-  //scene_objects_.push_back(new Rectangle);
-  //scene_objects_.push_back(new ExStencil);
-  //scene_objects_.push_back(new ExFbo);
-
 } // GLCanvas::GLCanvas()
 
 
-/**
- *  Called by window
+/** Called by fltk window to update each frame
  */
 void GLCanvas::OnDraw() {
   
@@ -116,9 +102,8 @@ void GLCanvas::OnDraw() {
 }// OnDraw()
 
 
-//
-// Initialize all OpenGL objects
-//
+/** Initialize all OpenGL objects
+ */
 void GLCanvas::InitGL() {
   glewExperimental = GL_TRUE;  
   glewInit();
@@ -144,9 +129,8 @@ void GLCanvas::InitGL() {
 } //End InitGL()
 
 
-//  
-// Draw Call happens here
-//  
+/* Draw Call happens here
+ */ 
 void GLCanvas::draw() {
   if (!initialized_) {
     InitGL(); return;
@@ -167,9 +151,9 @@ void GLCanvas::draw() {
 } //End GLCanvas::draw()
   
 
+/** Handle user inputs
+ */
 void GLCanvas::OnEvent(int e) {
-  /*printf("%d", e);*/
-  
   // remember what button was used, left_button:1, right_button:3
 	static int last_push = 0;
   static int last_x = 0;
